@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface SidebarProps {
-  activeSection: string;
-  onSelect: (id: string) => void;
   open?: boolean;
   onClose?: () => void;
 }
@@ -108,17 +108,64 @@ const SECTIONS = [
   },
 ];
 
-export function Sidebar({ activeSection, onSelect, open, onClose }: SidebarProps) {
-  const handleSelect = (id: string) => {
-    onSelect(id);
-    onClose?.();
-  };
+const PAGE_LABELS: Record<string, string> = {
+  overview: "Overview",
+  install: "Installation",
+  conventions: "Conventions",
+  page: "Page",
+  header: "Header",
+  text: "Text",
+  container: "Container",
+  button: "Button",
+  iconbutton: "IconButton",
+  center: "Center",
+  stack: "Stack",
+  divider: "Divider",
+  input: "Input",
+  image: "Image",
+  badge: "Badge",
+  card: "Card",
+  avatar: "Avatar",
+  icon: "Icon",
+  iconnetwork: "IconNetwork",
+  animation: "Animation",
+  transition: "Transition",
+  letteranimation: "LetterAnimation",
+  panel: "Panel",
+  span: "Span",
+  scrollview: "ScrollView",
+  section: "Section",
+  article: "Article",
+  navigator: "Navigator",
+  textbutton: "TextButton",
+  tiles: "Tiles",
+  list: "List",
+  listview: "ListView",
+  listmenu: "ListMenu",
+  bottommodal: "BottomModal",
+  sidepanel: "SidePanel",
+  reabon: "Reabon",
+  tab: "Tab",
+  tabview: "TabView",
+  pagescrollview: "PageScrollView",
+  gap: "Gap",
+  example: "Example",
+  sectiondivider: "SectionDivider",
+  padding: "Padding",
+  gridview: "GridView",
+  hooks: "Hooks",
+  icons: "205 Icons",
+};
+
+export function Sidebar({ open, onClose }: SidebarProps) {
+  const pathname = usePathname();
+  const activeSlug = pathname.split("/docs/")[1] || "overview";
 
   return (
     <>
       {/* Desktop sidebar */}
       <aside className="hidden md:block w-64 shrink-0 h-screen sticky top-14 overflow-y-auto border-r border-border bg-surface/90 backdrop-blur-sm">
-        <SidebarContent activeSection={activeSection} onSelect={handleSelect} />
+        <SidebarContent activeSlug={activeSlug} onClose={onClose} />
       </aside>
 
       {/* Mobile overlay */}
@@ -139,7 +186,7 @@ export function Sidebar({ activeSection, onSelect, open, onClose }: SidebarProps
                 </svg>
               </button>
             </div>
-            <SidebarContent activeSection={activeSection} onSelect={handleSelect} />
+            <SidebarContent activeSlug={activeSlug} onClose={onClose} />
           </aside>
         </div>
       )}
@@ -147,7 +194,7 @@ export function Sidebar({ activeSection, onSelect, open, onClose }: SidebarProps
   );
 }
 
-function SidebarContent({ activeSection, onSelect }: { activeSection: string; onSelect: (id: string) => void }) {
+function SidebarContent({ activeSlug, onClose }: { activeSlug: string; onClose?: () => void }) {
   return (
     <nav className="p-3" aria-label="Documentation navigation">
       {SECTIONS.map((section) => (
@@ -158,16 +205,17 @@ function SidebarContent({ activeSection, onSelect }: { activeSection: string; on
           <ul className="space-y-px">
             {section.items.map((item) => (
               <li key={item.id}>
-                <button
-                  onClick={() => onSelect(item.id)}
-                  className={`w-full text-left px-3 py-1.5 rounded-lg text-[13px] transition-all relative ${
-                    activeSection === item.id
+                <Link
+                  href={`/docs/${item.id}`}
+                  onClick={() => onClose?.()}
+                  className={`block px-3 py-1.5 rounded-lg text-[13px] transition-all relative ${
+                    activeSlug === item.id
                       ? "sidebar-active"
                       : "text-text-secondary hover:text-text-primary hover:bg-surface-light/50"
                   }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
@@ -176,3 +224,5 @@ function SidebarContent({ activeSection, onSelect }: { activeSection: string; on
     </nav>
   );
 }
+
+export { PAGE_LABELS };

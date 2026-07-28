@@ -42,9 +42,9 @@ export default function App() {
 ## Documentation
 
 - [Documentation Home](https://elk-components.dev/docs)
-- [Getting Started](https://elk-components.dev/docs?view=overview)
-- [Installation](https://elk-components.dev/docs?view=install)
-- [Conventions](https://elk-components.dev/docs?view=conventions)
+- [Getting Started](https://elk-components.dev/docs/overview)
+- [Installation](https://elk-components.dev/docs/install)
+- [Conventions](https://elk-components.dev/docs/conventions)
 
 ## API Reference
 
@@ -52,48 +52,48 @@ export default function App() {
 
 | Component | Description |
 |-----------|-------------|
-| [Animation](https://elk-components.dev/docs?view=animation) | Dual-mode motion/legacy animation component |
-| [LetterAnimation](https://elk-components.dev/docs?view=letteranimation) | Character-by-character text animation |
-| [Transition](https://elk-components.dev/docs?view=transition) | CSS enter/exit transitions |
-| [Button](https://elk-components.dev/docs?view=button) | Customizable button with gesture support |
-| [Text](https://elk-components.dev/docs?view=text) | Typography component with semantic variants |
-| [Card](https://elk-components.dev/docs?view=card) | Container with glass morphism |
-| [Badge](https://elk-components.dev/docs?view=badge) | Status and label badges |
-| [Avatar](https://elk-components.dev/docs?view=avatar) | User avatar with presence indicator |
-| [Icon](https://elk-components.dev/docs?view=icon) | SVG icon component (205 icons) |
-| [IconNetwork](https://elk-components.dev/docs?view=iconnetwork) | Blockchain network icons |
-| [Input](https://elk-components.dev/docs?view=input) | Text input with validation |
-| [Tab](https://elk-components.dev/docs?view=tab) | Tab navigation component |
-| [TabView](https://elk-components.dev/docs?view=tabview) | Tabbed content panels |
-| [List](https://elk-components.dev/docs?view=list) | List container |
-| [ListView](https://elk-components.dev/docs?view=listview) | Scrollable list with virtualization |
-| [Tiles](https://elk-components.dev/docs?view=tiles) | Grid tile layout |
-| [Container](https://elk-components.dev/docs?view=container) | Responsive container |
-| [Stack](https://elk-components.dev/docs?view=stack) | Flexbox stack layout |
-| [Center](https://elk-components.dev/docs?view=center) | Centering layout |
-| [Section](https://elk-components.dev/docs?view=section) | Page section with divider |
-| [Divider](https://elk-components.dev/docs?view=divider) | Decorative dividers |
-| [Image](https://elk-components.dev/docs?view=image) | Image with loading states |
-| [Span](https://elk-components.dev/docs?view=span) | Inline layout wrapper |
-| [Panel](https://elk-components.dev/docs?view=panel) | Collapsible panel |
-| [ScrollView](https://elk-components.dev/docs?view=scrollview) | Custom scrollbar container |
-| [Header](https://elk-components.dev/docs?view=header) | App header/navbar |
-| [Navigator](https://elk-components.dev/docs?view=navigator) | Route navigator |
-| [BottomModal](https://elk-components.dev/docs?view=bottommodal) | Bottom sheet modal |
-| [SidePanel](https://elk-components.dev/docs?view=sidepanel) | Side panel overlay |
-| [Padding](https://elk-components.dev/docs?view=padding) | Padding utility |
-| [Gap](https://elk-components.dev/docs?view=gap) | Gap utility |
+| [Animation](https://elk-components.dev/docs/animation) | Dual-mode motion/legacy animation component |
+| [LetterAnimation](https://elk-components.dev/docs/letteranimation) | Character-by-character text animation |
+| [Transition](https://elk-components.dev/docs/transition) | CSS enter/exit transitions |
+| [Button](https://elk-components.dev/docs/button) | Customizable button with gesture support |
+| [Text](https://elk-components.dev/docs/text) | Typography component with semantic variants |
+| [Card](https://elk-components.dev/docs/card) | Container with glass morphism |
+| [Badge](https://elk-components.dev/docs/badge) | Status and label badges |
+| [Avatar](https://elk-components.dev/docs/avatar) | User avatar with presence indicator |
+| [Icon](https://elk-components.dev/docs/icon) | SVG icon component (205 icons) |
+| [IconNetwork](https://elk-components.dev/docs/iconnetwork) | Blockchain network icons |
+| [Input](https://elk-components.dev/docs/input) | Text input with validation |
+| [Tab](https://elk-components.dev/docs/tab) | Tab navigation component |
+| [TabView](https://elk-components.dev/docs/tabview) | Tabbed content panels |
+| [List](https://elk-components.dev/docs/list) | List container |
+| [ListView](https://elk-components.dev/docs/listview) | Scrollable list with virtualization |
+| [Tiles](https://elk-components.dev/docs/tiles) | Grid tile layout |
+| [Container](https://elk-components.dev/docs/container) | Responsive container |
+| [Stack](https://elk-components.dev/docs/stack) | Flexbox stack layout |
+| [Center](https://elk-components.dev/docs/center) | Centering layout |
+| [Section](https://elk-components.dev/docs/section) | Page section with divider |
+| [Divider](https://elk-components.dev/docs/divider) | Decorative dividers |
+| [Image](https://elk-components.dev/docs/image) | Image with loading states |
+| [Span](https://elk-components.dev/docs/span) | Inline layout wrapper |
+| [Panel](https://elk-components.dev/docs/panel) | Collapsible panel |
+| [ScrollView](https://elk-components.dev/docs/scrollview) | Custom scrollbar container |
+| [Header](https://elk-components.dev/docs/header) | App header/navbar |
+| [Navigator](https://elk-components.dev/docs/navigator) | Route navigator |
+| [BottomModal](https://elk-components.dev/docs/bottommodal) | Bottom sheet modal |
+| [SidePanel](https://elk-components.dev/docs/sidepanel) | Side panel overlay |
+| [Padding](https://elk-components.dev/docs/padding) | Padding utility |
+| [Gap](https://elk-components.dev/docs/gap) | Gap utility |
 
 ### Hooks
 
-- [useTheme](https://elk-components.dev/docs?view=hooks) — Access theme context
-- [useBreakpoint](https://elk-components.dev/docs?view=hooks) — Responsive breakpoint detection
-- [useMediaQuery](https://elk-components.dev/docs?view=hooks) — CSS media query matching
-- [useReducedMotion](https://elk-components.dev/docs?view=hooks) — Accessibility motion preference
+- [useTheme](https://elk-components.dev/docs/hooks) — Access theme context
+- [useBreakpoint](https://elk-components.dev/docs/hooks) — Responsive breakpoint detection
+- [useMediaQuery](https://elk-components.dev/docs/hooks) — CSS media query matching
+- [useReducedMotion](https://elk-components.dev/docs/hooks) — Accessibility motion preference
 
 ### Icons
 
-205 built-in SVG icons across categories: arrows, communication, devices, files, media, navigation, social, and more. See [Icons](https://elk-components.dev/docs?view=icons).
+205 built-in SVG icons across categories: arrows, communication, devices, files, media, navigation, social, and more. See [Icons](https://elk-components.dev/docs/icons).
 
 ## Links
 

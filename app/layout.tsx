@@ -27,21 +27,21 @@ export const metadata: Metadata = {
   authors: [{ name: "elktrumelk" }],
   creator: "elktrumelk",
   publisher: "elktrumelk",
-  metadataBase: new URL("https://elk-components.dev"),
+  metadataBase: new URL("https://component-docs-seo.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://elk-components.dev",
+    url: "https://component-docs-seo.vercel.app",
     title: "elk-components — React Animation, Layout & Styling Toolkit",
     description:
       "Declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.",
     siteName: "elk-components",
     images: [
       {
-        url: "/og.png",
+        url: "/globe.svg",
         width: 1200,
         height: 630,
         alt: "elk-components — React Animation, Layout & Styling Toolkit",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "elk-components — React Animation, Layout & Styling Toolkit",
     description:
       "Declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.",
-    images: ["/og.png"],
+    images: ["https://pbs.twimg.com/profile_images/2071278020736770048/sHsdbtbL.jpg"],
     creator: "@elktrumelk",
   },
   robots: {
@@ -75,8 +75,8 @@ const jsonLd = {
   name: "elk-components",
   description:
     "React animation, layout, and styling toolkit with declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.",
-  url: "https://elk-components.dev",
-  codeRepository: "https://github.com/elktrumelk/elk-components",
+  url: "https://component-docs-seo.vercel.app",
+  codeRepository: "https://github.com/ElktrumElk/components",
   programmingLanguage: "TypeScript",
   runtimePlatform: "React",
   license: "https://opensource.org/licenses/MIT",
@@ -90,12 +90,12 @@ const jsonLd = {
   author: {
     "@type": "Person",
     name: "Elkanah Cole",
-    url: "https://github.com/elktrumelk",
+    url: "https://github.com/ElktrumElk",
   },
   maintainer: {
     "@type": "Person",
     name: "Elkanah Cole",
-    url: "https://github.com/elktrumelk",
+    url: "https://github.com/ElktrumElk",
   },
   supports: ["React 18+", "TypeScript", "Next.js"],
 };
@@ -150,6 +150,14 @@ const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes. elk-components is open source under the MIT license. You can use it in personal and commercial projects.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can elk-components be Scaffolded?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. elk-components can be scaffolded by running npm create elk-component@latest or npx create-elk-components",
       },
     },
   ],

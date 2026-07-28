@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { PropsTable } from "./PropsTable";
 import { CodeBlock } from "./CodeBlock";
 
@@ -90,17 +91,13 @@ export function ComponentPage({
             </h2>
             <div className="flex flex-wrap gap-2">
               {related.map((name) => (
-                <button
+                <Link
                   key={name}
-                  onClick={() => {
-                    window.dispatchEvent(
-                      new CustomEvent("navigate", { detail: name.toLowerCase() })
-                    );
-                  }}
-                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-surface-light border border-border text-text-secondary hover:text-primary-light hover:border-primary/40 transition-colors cursor-pointer"
+                  href={`/docs/${name.toLowerCase()}`}
+                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-surface-light border border-border text-text-secondary hover:text-primary-light hover:border-primary/40 transition-colors"
                 >
                   {name}
-                </button>
+                </Link>
               ))}
             </div>
           </section>
