@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   publisher: "elktrumelk",
   metadataBase: new URL("https://component-docs-seo.vercel.app"),
   alternates: {
-    canonical: "/",
+    canonical: "https://component-docs-seo.vercel.app",
   },
   openGraph: {
     type: "website",
