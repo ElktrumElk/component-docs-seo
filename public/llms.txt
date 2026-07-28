@@ -2,6 +2,27 @@
 
 > React animation, layout, and styling toolkit with declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.
 
+## ⚠️ CRITICAL: AI Agents Must Read This
+
+elk-components uses **render props** for all content. Every component's `child` prop takes an **arrow function returning JSX**, NOT raw JSX children. This is the #1 mistake AI agents make.
+
+**AI MANDATORY RULES:**
+1. NEVER use `<Comp><div>content</div></Comp>` — this WILL NOT work
+2. ALWAYS use `<Comp child={() => <div>content</div>} />`
+3. NEVER pass JSX directly to `child` — `child={<div>x</div>}` is WRONG
+4. Native DOM events go in the `gest` prop, NOT as direct props
+5. For full strict rules, read: https://elk-components.dev/ai-rules.md
+
+```tsx
+// ✅ CORRECT — arrow function returning JSX
+<Stack child={() => <div>Hello</div>} />
+<Center child={() => <Text text="Hi" type="p" />} />
+
+// ❌ WRONG — will NOT render
+<Stack><div>Hello</div></Stack>
+<Center child={<Text text="Hi" type="p" />} />
+```
+
 ## Overview
 
 elk-components is a production-ready React component library powered by Motion and the Web Animations API. It provides:
