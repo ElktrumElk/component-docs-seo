@@ -2,7 +2,7 @@
 
 > Documentation site for [elk-components](https://www.npmjs.com/package/elk-components) — a production-ready React animation, layout, and styling toolkit.
 
-Built with [Next.js 16](https://nextjs.org) and [elk-components](https://elk-components.dev) itself.
+Built with [Next.js 16](https://nextjs.org) and [elk-components](https://component-docs-seo.vercel.app) itself.
 
 ## Stack
 
@@ -19,7 +19,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost](http://localhost).
 
 ## Build
 
@@ -94,4 +94,6 @@ Deploys automatically via Vercel. Domain: [elk-components.dev](https://elk-compo
 
 ## License
 
-MIT — built by [elktrumelk](https://github.com/elktrumelk)
+MIT — built by [Elkanah Cole](https://github.com/ElktrumElk)
+
+[GitHub](https://github.com/ElktrumElk/components) · [npm](https://www.npmjs.com/package/elk-components) · [elk-components.dev](https://component-docs-seo.vercel.app)

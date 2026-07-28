@@ -451,6 +451,6 @@ import { Icon, Icons } from "elk-components";
 
 ## Links
 - npm: https://www.npmjs.com/package/elk-components
-- GitHub: https://github.com/elktrumelk/elk-components
+- GitHub: https://github.com/ElktrumElk/components
 - Docs: https://elk-components.dev/docs
 - Full reference: https://elk-components.dev/llms-full.txt

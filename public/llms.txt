@@ -119,8 +119,9 @@ export default function App() {
 ## Links
 
 - [npm](https://www.npmjs.com/package/elk-components)
-- [GitHub](https://github.com/elktrumelk/elk-components)
-- [Author](https://github.com/elktrumelk)
+- [GitHub](https://github.com/ElktrumElk/components)
+
+- [Author](https://github.com/ElktrumElk)
 
 ## License
 
