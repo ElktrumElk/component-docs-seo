@@ -82,7 +82,7 @@ const jsonLd = {
   license: "https://opensource.org/licenses/MIT",
   keywords:
     "react, animation, motion, transitions, ui, components, layout, styling, icons",
-  version: "1.3.9",
+  version: "1.3.13",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Cross-platform",
   datePublished: "2024-01-15",

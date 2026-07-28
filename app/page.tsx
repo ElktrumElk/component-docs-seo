@@ -235,7 +235,7 @@ export default function HomePage() {
           <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center">
             <div className="animate-slide-up">
               <span className="inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-primary/30 bg-primary/10 text-primary-light">
-                v1.3.9 &middot; MIT License &middot; 3 Dependencies
+                v1.3.13 &middot; MIT License &middot; 3 Dependencies
               </span>
             </div>
 
@@ -827,7 +827,7 @@ const width = useComponentData<number>(
             >
               GitHub
             </a>
-            <span>v1.3.9</span>
+            <span>v1.3.13</span>
             <span>MIT License</span>
           </div>
           <p className="text-xs text-text-muted">

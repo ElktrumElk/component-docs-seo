@@ -87,7 +87,7 @@ public/
 - **HighlightedCode** (install.tsx only) uses `dangerouslySetInnerHTML` with `<span class="keyword">` etc.
 - Code syntax classes: `.keyword` (green), `.string` (amber), `.component` (cyan), `.prop` (pink), `.comment` (brown italic)
 - Write examples as raw strings, NOT JSX components
-- Version strings: `v1.3.9` everywhere
+- Version strings: `v1.3.13` everywhere
 
 ## 🧭 Routing
 

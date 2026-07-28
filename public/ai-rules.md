@@ -1,7 +1,7 @@
 # elk-components — AI Rules & Guidelines
 
 > Strict rules for AI agents generating code using elk-components. Follow these rules EXACTLY.
-> Version: 1.3.9 | License: MIT | Author: Elkanah Cole (elktrumelk)
+> Version: 1.3.13 | License: MIT | Author: Elkanah Cole (elktrumelk)
 
 ---
 

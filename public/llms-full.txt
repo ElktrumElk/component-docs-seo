@@ -3,7 +3,7 @@
 > React animation, layout, and styling toolkit with declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.
 > Author: Elkanah Cole (elktrumelk) — https://github.com/elktrumelk
 > License: MIT
-> Version: 1.3.9
+> Version: 1.3.13
 
 ---
 

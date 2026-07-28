@@ -47,7 +47,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
               </span>
             </div>
             <div className="flex items-center gap-3 sm:gap-4">
-              <span className="text-xs text-text-muted font-mono hidden sm:inline">v1.3.9</span>
+              <span className="text-xs text-text-muted font-mono hidden sm:inline">v1.3.13</span>
               <a
                 href="https://www.npmjs.com/package/elk-components"
                 target="_blank"

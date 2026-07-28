@@ -73,7 +73,7 @@ public/
 
 ## Content
 
-The docs cover elk-components v1.3.9+ with 44 documentation pages across 10 categories:
+The docs cover elk-components v1.3.13+ with 44 documentation pages across 10 categories:
 
 | Category | Components |
 |----------|-----------|

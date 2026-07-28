@@ -3,7 +3,7 @@
   "name": "elk-components",
   "description": "React animation, layout, and styling toolkit with declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.",
   "url": "https://elk-components.dev",
-  "version": "1.3.9",
+  "version": "1.3.13",
   "author": {
     "name": "Elkanah Cole",
     "url": "https://github.com/elktrumelk"
