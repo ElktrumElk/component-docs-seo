@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: "%s | elk-components",
   },
   description:
-    "Declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons. A production-ready React component library powered by Motion and the Web Animations API.",
+    "A production-ready React component library with declarative motion, transitions, 30+ composable UI primitives, and 205 built-in SVG icons.",
   keywords: [
     "react",
     "component library",
