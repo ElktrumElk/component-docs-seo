@@ -80,25 +80,26 @@ export function AnimationPage() {
       title="Animation"
       description="Dual-mode animation component. Motion mode provides declarative spring/tween animations via motion/react. Legacy mode uses the native Web Animations API for zero-dependency keyframe animations. The mode is auto-detected based on which props you pass."
       props={motionProps}
-      example={`<span class="comment">// Motion mode — declarative spring animation</span>
-&lt;<span class="component">Animation</span>
-  <span class="prop">initial</span>={{ <span class="prop">opacity</span>: 0, <span class="prop">y</span>: 20 }}
-  <span class="prop">animate</span>={{ <span class="prop">opacity</span>: 1, <span class="prop">y</span>: 0 }}
-  <span class="prop">transition</span>={{ <span class="prop">type</span>: <span class="string">"spring"</span>, <span class="prop">stiffness</span>: 200, <span class="prop">damping</span>: 15 }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">MyComponent</span> /&gt;}
-/&gt;
+      related={["Transition", "LetterAnimation", "Card", "Button"]}
+      example={`// Motion mode — declarative spring animation
+<Animation
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+  child={() => <MyComponent />}
+/>
 
-<span class="comment">// Legacy mode — auto fade-in on mount</span>
-&lt;<span class="component">Animation</span>
-  <span class="prop">isAutomatic</span>
-  <span class="prop">duration</span>={<span class="string">600</span>}
-  <span class="prop">easing</span>=<span class="string">"ease-out"</span>
-  <span class="prop">keyframes</span>={[
-    { <span class="prop">opacity</span>: 0, <span class="prop">transform</span>: <span class="string">"translateY(10px)"</span> },
-    { <span class="prop">opacity</span>: 1, <span class="prop">transform</span>: <span class="string">"translateY(0)"</span> },
+// Legacy mode — auto fade-in on mount
+<Animation
+  isAutomatic
+  duration={600}
+  easing="ease-out"
+  keyframes={[
+    { opacity: 0, transform: "translateY(10px)" },
+    { opacity: 1, transform: "translateY(0)" },
   ]}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">div</span>&gt;I fade in&lt;/<span class="component">div</span>&gt;}
-/&gt;`}
+  child={() => <div>I fade in</div>}
+/>`}
       notes={notes}
     >
       <div className="mb-4">
@@ -116,12 +117,12 @@ export function AnimationPage() {
       <ExampleCard
         title="Spring Fade-In"
         description="A smooth fade-in with spring physics. The element slides up from 20px below while fading in. Spring physics give a natural, slightly bouncy feel."
-        code={`&lt;<span class="component">Animation</span>
-  <span class="prop">initial</span>={{ <span class="prop">opacity</span>: 0, <span class="prop">y</span>: 20 }}
-  <span class="prop">animate</span>={{ <span class="prop">opacity</span>: 1, <span class="prop">y</span>: 0 }}
-  <span class="prop">transition</span>={{ <span class="prop">type</span>: <span class="string">"spring"</span>, <span class="prop">stiffness</span>: 200, <span class="prop">damping</span>: 15 }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">div</span>&gt;I spring in from below&lt;/<span class="component">div</span>&gt;}
-/&gt;`}
+        code={`<Animation
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+  child={() => <div>I spring in from below</div>}
+/>`}
       >
         <Animation
           initial={{ opacity: 0, y: 20 }}
@@ -138,14 +139,14 @@ export function AnimationPage() {
       <ExampleCard
         title="Hover + Tap Gestures"
         description="Interactive animation that responds to hover and tap. Scales up on hover with a subtle shadow, and compresses on tap for tactile feedback."
-        code={`&lt;<span class="component">Animation</span>
-  <span class="prop">initial</span>={{ <span class="prop">opacity</span>: 0, <span class="prop">scale</span>: 0.9 }}
-  <span class="prop">animate</span>={{ <span class="prop">opacity</span>: 1, <span class="prop">scale</span>: 1 }}
-  <span class="prop">whileHover</span>={{ <span class="prop">scale</span>: 1.05, <span class="prop">boxShadow</span>: <span class="string">"0 4px 20px rgba(0,0,0,0.2)"</span> }}
-  <span class="prop">whileTap</span>={{ <span class="prop">scale</span>: 0.95 }}
-  <span class="prop">transition</span>={{ <span class="prop">type</span>: <span class="string">"spring"</span>, <span class="prop">stiffness</span>: 300, <span class="prop">damping</span>: 20 }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">div</span>&gt;Hover: {hoverCount} | Tap: {tapCount}&lt;/<span class="component">div</span>&gt;}
-/&gt;`}
+        code={`<Animation
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(0,0,0,0.2)" }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  child={() => <div>Hover: {hoverCount} | Tap: {tapCount}</div>}
+/>`}
       >
         <HoverTapDemo />
       </ExampleCard>
@@ -153,13 +154,13 @@ export function AnimationPage() {
       <ExampleCard
         title="Scroll-Triggered Entrance"
         description="Animate when the element enters the viewport. Use viewport.once=true to only play once. The amount threshold controls how much of the element must be visible."
-        code={`&lt;<span class="component">Animation</span>
-  <span class="prop">initial</span>={{ <span class="prop">opacity</span>: 0, <span class="prop">y</span>: 40 }}
-  <span class="prop">whileInView</span>={{ <span class="prop">opacity</span>: 1, <span class="prop">y</span>: 0 }}
-  <span class="prop">viewport</span>={{ <span class="prop">once</span>: <span class="keyword">true</span>, <span class="prop">amount</span>: 0.5 }}
-  <span class="prop">transition</span>={{ <span class="prop">type</span>: <span class="string">"spring"</span>, <span class="prop">stiffness</span>: 100, <span class="prop">damping</span>: 20 }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">div</span>&gt;Scroll me into view&lt;/<span class="component">div</span>&gt;}
-/&gt;`}
+        code={`<Animation
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  transition={{ type: "spring", stiffness: 100, damping: 20 }}
+  child={() => <div>Scroll me into view</div>}
+/>`}
       >
         <Animation
           initial={{ opacity: 0, y: 40 }}
@@ -191,16 +192,16 @@ export function AnimationPage() {
       <ExampleCard
         title="Auto Fade-In on Mount"
         description="Fade in automatically when the component mounts using the Web Animations API. No external dependencies needed."
-        code={`&lt;<span class="component">Animation</span>
-  <span class="prop">isAutomatic</span>
-  <span class="prop">duration</span>={<span class="string">600</span>}
-  <span class="prop">easing</span>=<span class="string">"ease-out"</span>
-  <span class="prop">keyframes</span>={[
-    { <span class="prop">opacity</span>: 0, <span class="prop">transform</span>: <span class="string">"translateY(10px)"</span> },
-    { <span class="prop">opacity</span>: 1, <span class="prop">transform</span>: <span class="string">"translateY(0)"</span> },
+        code={`<Animation
+  isAutomatic
+  duration={600}
+  easing="ease-out"
+  keyframes={[
+    { opacity: 0, transform: "translateY(10px)" },
+    { opacity: 1, transform: "translateY(0)" },
   ]}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">div</span>&gt;I fade in on mount&lt;/<span class="component">div</span>&gt;}
-/&gt;`}
+  child={() => <div>I fade in on mount</div>}
+/>`}
       >
         <Animation isAutomatic duration={600} easing="ease-out" keyframes={[{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "translateY(0)" }]} child={() => (
           <div style={{ padding: "1.5rem", background: "rgba(34,197,94,0.08)", borderRadius: "10px", border: "1px solid rgba(34,197,94,0.2)", color: "#faf5f0" }}>
@@ -212,17 +213,17 @@ export function AnimationPage() {
       <ExampleCard
         title="Click Bounce"
         description="Bounce animation triggered on click. The gesture prop makes the animation respond to user interaction — no manual event handlers needed."
-        code={`&lt;<span class="component">Animation</span>
-  <span class="prop">gesture</span>=<span class="string">"click"</span>
-  <span class="prop">duration</span>={<span class="string">400</span>}
-  <span class="prop">keyframes</span>={[
-    { <span class="prop">transform</span>: <span class="string">"scale(1)"</span> },
-    { <span class="prop">transform</span>: <span class="string">"scale(1.2)"</span> },
-    { <span class="prop">transform</span>: <span class="string">"scale(0.95)"</span> },
-    { <span class="prop">transform</span>: <span class="string">"scale(1)"</span> },
+        code={`<Animation
+  gesture="click"
+  duration={400}
+  keyframes={[
+    { transform: "scale(1)" },
+    { transform: "scale(1.2)" },
+    { transform: "scale(0.95)" },
+    { transform: "scale(1)" },
   ]}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">button</span>&gt;Click to bounce&lt;/<span class="component">button</span>&gt;}
-/&gt;`}
+  child={() => <button>Click to bounce</button>}
+/>`}
       >
         <Animation gesture="click" duration={400} keyframes={[{ transform: "scale(1)" }, { transform: "scale(1.2)" }, { transform: "scale(0.95)" }, { transform: "scale(1)" }]} child={() => (
           <div style={{ padding: "1rem 2rem", background: "rgba(34,197,94,0.08)", borderRadius: "10px", border: "1px solid rgba(34,197,94,0.2)", color: "#faf5f0", cursor: "pointer", textAlign: "center" }}>

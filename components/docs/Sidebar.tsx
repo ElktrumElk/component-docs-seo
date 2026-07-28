@@ -160,9 +160,9 @@ function SidebarContent({ activeSection, onSelect }: { activeSection: string; on
               <li key={item.id}>
                 <button
                   onClick={() => onSelect(item.id)}
-                  className={`w-full text-left px-3 py-1.5 rounded-lg text-[13px] transition-all ${
+                  className={`w-full text-left px-3 py-1.5 rounded-lg text-[13px] transition-all relative ${
                     activeSection === item.id
-                      ? "bg-primary/15 text-primary-light font-semibold"
+                      ? "sidebar-active"
                       : "text-text-secondary hover:text-text-primary hover:bg-surface-light/50"
                   }`}
                 >

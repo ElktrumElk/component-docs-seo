@@ -4,9 +4,9 @@ import React from "react";
 import { CodeBlock } from "./CodeBlock";
 
 interface ExampleCardProps {
-  title: string;
-  description: string;
-  children: React.ReactNode;
+  title?: string;
+  description?: string;
+  children?: React.ReactNode;
   code?: string;
 }
 

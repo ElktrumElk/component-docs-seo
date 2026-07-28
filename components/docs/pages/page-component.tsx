@@ -20,12 +20,13 @@ export function PagePage() {
       title="Page"
       description="Top-level layout section. Wraps header, body, and footer into a semantic page structure."
       props={props}
-      example={`<Page
-  header={() => <Header ... />}
-  body={() => <Center child={() => <Text text="Content" type="h1" />} />}
+      example={`
+< Page header={() => 
+    <Header ... />} body={() => <Center child={() => <Text text="Content" type="h1" />} />}
   footer={() => <Text text="Footer" type="p" />}
 />`}
     >
+      
       <ExampleCard
         title="Basic Page Layout"
         description="A page with header, body, and footer sections."

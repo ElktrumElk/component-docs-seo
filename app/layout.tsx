@@ -82,9 +82,77 @@ const jsonLd = {
   license: "https://opensource.org/licenses/MIT",
   keywords:
     "react, animation, motion, transitions, ui, components, layout, styling, icons",
-  version: "1.3.8",
+  version: "1.3.9",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Cross-platform",
+  datePublished: "2024-01-15",
+  dateModified: "2025-07-26",
+  author: {
+    "@type": "Person",
+    name: "Elkanah Cole",
+    url: "https://github.com/elktrumelk",
+  },
+  maintainer: {
+    "@type": "Person",
+    name: "Elkanah Cole",
+    url: "https://github.com/elktrumelk",
+  },
+  supports: ["React 18+", "TypeScript", "Next.js"],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is elk-components?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "elk-components is a production-ready React component library providing declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons. It is powered by Motion and the Web Animations API.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I install elk-components?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Run `npm install elk-components` in your project. It has minimal peer dependencies: react and react-dom. Motion is optional — used only if you want Motion mode animations.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does elk-components support TypeScript?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. elk-components is written in TypeScript and ships with full type definitions. All props, hooks, and component APIs are fully typed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What animation modes does elk-components support?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "elk-components has two animation modes: Motion mode (declarative spring/tween animations via motion/react) and Legacy mode (native Web Animations API with keyframes). The mode is auto-detected based on which props you pass — no configuration needed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How many icons does elk-components include?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "elk-components includes 205 built-in SVG icons across categories: arrows, communication, devices, files, media, navigation, social, interface, charts, and more. Access them via the Icons object.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is elk-components free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. elk-components is open source under the MIT license. You can use it in personal and commercial projects.",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -98,6 +166,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body>{children}</body>

@@ -19,6 +19,7 @@ interface ComponentPageProps {
   example: string;
   exampleFilename?: string;
   notes?: React.ReactNode;
+  related?: string[];
   children?: React.ReactNode;
 }
 
@@ -29,6 +30,7 @@ export function ComponentPage({
   example,
   exampleFilename,
   notes,
+  related,
   children,
 }: ComponentPageProps) {
   return (
@@ -77,6 +79,33 @@ export function ComponentPage({
         </h2>
         <CodeBlock filename={exampleFilename}>{example}</CodeBlock>
       </section>
+
+      {related && related.length > 0 && (
+        <>
+          <div className="my-8 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <section className="animate-slide-up" style={{ animationDelay: "400ms" }} aria-label="Related components">
+            <h2 className="text-lg sm:text-xl font-bold mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 rounded-full bg-text-muted inline-block" />
+              See Also
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {related.map((name) => (
+                <button
+                  key={name}
+                  onClick={() => {
+                    window.dispatchEvent(
+                      new CustomEvent("navigate", { detail: name.toLowerCase() })
+                    );
+                  }}
+                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-surface-light border border-border text-text-secondary hover:text-primary-light hover:border-primary/40 transition-colors cursor-pointer"
+                >
+                  {name}
+                </button>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </article>
   );
 }

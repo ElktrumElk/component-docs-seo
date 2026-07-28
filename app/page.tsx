@@ -107,7 +107,7 @@ function CodeBlock({ children, filename }: { children: string; filename?: string
         </div>
       )}
       <pre className="code-block rounded-none border-0 m-0">
-        <code dangerouslySetInnerHTML={{ __html: children }} />
+        <code>{children}</code>
       </pre>
     </div>
   );
@@ -134,12 +134,14 @@ export default function HomePage() {
               <a href="#quickstart" className="nav-link">Quick Start</a>
             </div>
             <Link
+            style={{border: '1px solid #51ff6868'}}
               href="/docs"
               className="px-4 py-2 rounded-lg border border-primary/40 text-primary-light text-sm font-semibold hover:bg-primary/10 transition-colors"
             >
               Docs
             </Link>
             <a
+              
               href="https://www.npmjs.com/package/elk-components"
               target="_blank"
               rel="noopener noreferrer"
@@ -247,14 +249,14 @@ export default function HomePage() {
                 1. Install
               </h3>
               <CodeBlock filename="terminal">
-{`<span class="comment"># npm</span>
-<span class="keyword">npm</span> install <span class="string">elk-components</span>
+{`# npm
+npm install elk-components
 
-<span class="comment"># yarn</span>
-<span class="keyword">yarn</span> add <span class="string">elk-components</span>
+# yarn
+yarn add elk-components
 
-<span class="comment"># pnpm</span>
-<span class="keyword">pnpm</span> add <span class="string">elk-components</span>`}
+# pnpm
+pnpm add elk-components`}
               </CodeBlock>
             </div>
 
@@ -263,25 +265,25 @@ export default function HomePage() {
                 2. Import &amp; Use
               </h3>
               <CodeBlock filename="App.tsx">
-{`<span class="keyword">import</span> {
+{`import {
   Button, Text, Card, Avatar,
   Animation, Transition, LetterAnimation,
   Icon, Icons
-} <span class="keyword">from</span> <span class="string">"elk-components"</span>;
+} from "elk-components";
 
-<span class="keyword">export default function</span> <span class="component">App</span>() {
-  <span class="keyword">return</span> (
-    &lt;<span class="component">Card</span> <span class="prop">padding</span>=<span class="string">"lg"</span>&gt;
-      &lt;<span class="component">Animation</span>
-        <span class="prop">initial</span>={{ <span class="prop">opacity</span>: 0, <span class="prop">y</span>: 20 }}
-        <span class="prop">animate</span>={{ <span class="prop">opacity</span>: 1, <span class="prop">y</span>: 0 }}
-        <span class="prop">child</span>={() =&gt; (
-          &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Hello, elk-components!"</span> <span class="prop">type</span>=<span class="string">"h1"</span> /&gt;
+export default function App() {
+  return (
+    <Card padding="lg">
+      <Animation
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        child={() => (
+          <Text text="Hello, elk-components!" type="h1" />
         )}
-      /&gt;
-      &lt;<span class="component">Avatar</span> <span class="prop">src</span>=<span class="string">"/user.jpg"</span> <span class="prop">size</span>=<span class="string">"lg"</span> /&gt;
-      &lt;<span class="component">Button</span> <span class="prop">child</span>={() =&gt; &lt;<span class="component">Icon</span> <span class="prop">icon</span>={Icons.icon.ShoppingCart} /&gt;} /&gt;
-    &lt;/<span class="component">Card</span>&gt;
+      />
+      <Avatar src="/user.jpg" size="lg" />
+      <Button child={() => <Icon icon={Icons.icon.ShoppingCart} />} />
+    </Card>
   );
 }`}
               </CodeBlock>
@@ -292,19 +294,19 @@ export default function HomePage() {
                 3. Animate text with one line
               </h3>
               <CodeBlock filename="Hero.tsx">
-{`<span class="keyword">import</span> { LetterAnimation } <span class="keyword">from</span> <span class="string">"elk-components"</span>;
+{`import { LetterAnimation } from "elk-components";
 
-<span class="comment">// 20 built-in presets: bounceIn, glitch, elastic,</span>
-<span class="comment">// typewriter, wave, spiral, and more</span>
+// 20 built-in presets: bounceIn, glitch, elastic,
+// typewriter, wave, spiral, and more
 
-&lt;<span class="component">LetterAnimation</span>
-  <span class="prop">text</span>=<span class="string">"Welcome to elk-components"</span>
-  <span class="prop">type</span>=<span class="string">"words"</span>
-  <span class="prop">animation</span>=<span class="string">"bounceIn"</span>
-  <span class="prop">size</span>=<span class="string">"3rem"</span>
-  <span class="prop">stagger</span>={<span class="string">60</span>}
-  <span class="prop">duration</span>={<span class="string">400</span>}
-/&gt;`}
+<LetterAnimation
+  text="Welcome to elk-components"
+  type="words"
+  animation="bounceIn"
+  size="3rem"
+  stagger={60}
+  duration={400}
+/>`}
               </CodeBlock>
             </div>
           </div>
@@ -346,12 +348,12 @@ export default function HomePage() {
                 Both support gesture triggers and scroll-linked playback.
               </p>
               <CodeBlock>
-{`<span class="component">Animation</span>
-  <span class="prop">initial</span>={{ <span class="prop">opacity</span>: 0, <span class="prop">scale</span>: 0.8 }}
-  <span class="prop">animate</span>={{ <span class="prop">opacity</span>: 1, <span class="prop">scale</span>: 1 }}
-  <span class="prop">whileHover</span>={{ <span class="prop">scale</span>: 1.05 }}
-  <span class="prop">whileTap</span>={{ <span class="prop">scale</span>: 0.95 }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">Button</span> /&gt;}
+{`Animation
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  child={() => <Button />}
 />`}
               </CodeBlock>
             </article>
@@ -367,12 +369,12 @@ export default function HomePage() {
                 Effects include fade, slide, zoom, flip, liquid, morph, and glide.
               </p>
               <CodeBlock>
-{`<span class="component">Transition</span>
-  <span class="prop">from</span>={() =&gt; &lt;<span class="component">LoginView</span> /&gt;}
-  <span class="prop">to</span>={() =&gt; &lt;<span class="component">RegisterView</span> /&gt;}
-  <span class="prop">effect</span>=<span class="string">"slide-left"</span>
-  <span class="prop">duration</span>={<span class="string">300</span>}
-  <span class="prop">gesture</span>=<span class="string">"click"</span>
+{`Transition
+  from={() => <LoginView />}
+  to={() => <RegisterView />}
+  effect="slide-left"
+  duration={300}
+  gesture="click"
 />`}
               </CodeBlock>
             </article>
@@ -387,13 +389,13 @@ export default function HomePage() {
                 and gesture triggers. Each variant has a unique animation preset.
               </p>
               <CodeBlock>
-{`<span class="component">SectionDivider</span>
-  <span class="prop">variant</span>=<span class="string">"wave"</span>
-  <span class="prop">animate</span>
-  <span class="prop">float</span>
-  <span class="prop">color</span>=<span class="string">"#22c55e"</span>
-  <span class="prop">amplitude</span>={<span class="string">20</span>}
-  <span class="prop">frequency</span>={<span class="string">4</span>}
+{`SectionDivider
+  variant="wave"
+  animate
+  float
+  color="#22c55e"
+  amplitude={20}
+  frequency={4}
 />`}
               </CodeBlock>
             </article>
@@ -409,20 +411,20 @@ export default function HomePage() {
                 <span className="highlight-green">Cross-component state</span> without prop drilling or context providers.
               </p>
               <CodeBlock>
-{`<span class="keyword">const</span> store = <span class="component">createStore</span>({ <span class="prop">count</span>: 0 });
+{`const store = createStore({ count: 0 });
 
-<span class="keyword">function</span> <span class="component">Counter</span>() {
-  <span class="keyword">const</span> { count } = <span class="component">useStore</span>(store);
-  <span class="keyword">const</span> set = <span class="component">useSetState</span>(store);
-  <span class="keyword">return</span> (
-    &lt;<span class="component">Button</span>
-      <span class="prop">child</span>={() =&gt; &lt;<span class="component">Text</span>
-        <span class="prop">text</span>={\`Count: \${count}\`}
-        <span class="prop">type</span>=<span class="string">"p"</span> /&gt;}
-      <span class="prop">gest</span>={{ <span class="prop">onClick</span>: () =&gt;
-        <span class="component">set</span>(p =&gt; ({ <span class="prop">count</span>: p.count + 1 }))
+function Counter() {
+  const { count } = useStore(store);
+  const set = useSetState(store);
+  return (
+    <Button
+      child={() => <Text
+        text={\`Count: \${count}\`}
+        type="p" />}
+      gest={{ onClick: () =>
+        set(p => ({ count: p.count + 1 }))
       }}
-    /&gt;
+    />
   );
 }`}
               </CodeBlock>
@@ -459,15 +461,15 @@ export default function HomePage() {
 
           <div className="mt-12 max-w-2xl mx-auto">
             <CodeBlock filename="icons.tsx">
-{`<span class="keyword">import</span> { Icon, Icons } <span class="keyword">from</span> <span class="string">"elk-components"</span>;
+{`import { Icon, Icons } from "elk-components";
 
-<span class="comment">// Access icons via Icons.icon.* namespace</span>
-&lt;<span class="component">Icon</span> <span class="prop">icon</span>={Icons.icon.Lock} <span class="prop">size</span>=<span class="string">"lg"</span> <span class="prop">color</span>=<span class="string">"white"</span> /&gt;
-&lt;<span class="component">Icon</span> <span class="prop">icon</span>={Icons.icon.Heart} <span class="prop">size</span>={<span class="string">24</span>} <span class="prop">color</span>=<span class="string">"red"</span> /&gt;
+// Access icons via Icons.icon.* namespace
+<Icon icon={Icons.icon.Lock} size="lg" color="white" />
+<Icon icon={Icons.icon.Heart} size={24} color="red" />
 
-<span class="comment">// Size presets: xs=12, sm=16, md=24, lg=32, xl=48</span>
-<span class="comment">// Or pass a raw number for exact pixel sizing</span>
-&lt;<span class="component">Icon</span> <span class="prop">icon</span>={Icons.icon.Search} <span class="prop">size</span>={<span class="string">40</span>} /&gt;`}
+// Size presets: xs=12, sm=16, md=24, lg=32, xl=48
+// Or pass a raw number for exact pixel sizing
+<Icon icon={Icons.icon.Search} size={40} />`}
             </CodeBlock>
           </div>
         </div>
@@ -503,28 +505,28 @@ export default function HomePage() {
 
           <div className="mt-12">
             <CodeBlock filename="hooks.ts">
-{`<span class="keyword">import</span> {
+{`import {
   useState, useRef, useEffect, useCallback,
   createStore, useStore, useSetState,
   useInstance, useComponentData,
   useStableCallback
-} <span class="keyword">from</span> <span class="string">"elk-components/hooks"</span>;
+} from "elk-components/hooks";
 
-<span class="comment">// Enhanced useState with reset() and get()</span>
-<span class="keyword">const</span> count = <span class="component">useState</span>(<span class="string">0</span>);
-count.set(<span class="string">1</span>);           <span class="comment">// set value</span>
-count.get();            <span class="comment">// read without re-render</span>
-count.reset();          <span class="comment">// back to 0</span>
+// Enhanced useState with reset() and get()
+const count = useState(0);
+count.set(1);           // set value
+count.get();            // read without re-render
+count.reset();          // back to 0
 
-<span class="comment">// Stable callback — identity never changes</span>
-<span class="keyword">const</span> fn = <span class="component">useStableCallback</span>((data) =&gt; {
+// Stable callback — identity never changes
+const fn = useStableCallback((data) => {
   console.log(data);
 });
 
-<span class="comment">// Cross-component data sharing</span>
-<span class="keyword">const</span> { setData } = <span class="component">useInstance</span>(<span class="string">"sidebar"</span>);
-<span class="keyword">const</span> width = <span class="component">useComponentData</span>&lt;number&gt;(
-  <span class="string">"sidebar"</span>, <span class="string">"width"</span>
+// Cross-component data sharing
+const { setData } = useInstance("sidebar");
+const width = useComponentData<number>(
+  "sidebar", "width"
 );`}
             </CodeBlock>
           </div>
@@ -580,27 +582,27 @@ count.reset();          <span class="comment">// back to 0</span>
 
           <div className="mt-12">
             <CodeBlock filename="advanced-patterns.tsx">
-{`<span class="comment">// Render props — every slot uses () =&gt; JSX</span>
-&lt;<span class="component">Card</span>
-  <span class="prop">padding</span>=<span class="string">"lg"</span>
-  <span class="prop">radius</span>=<span class="string">"lg"</span>
-  <span class="prop">shadow</span>
-  <span class="prop">header</span>={() =&gt; &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Title"</span> <span class="prop">type</span>=<span class="string">"h2"</span> /&gt;}
-  <span class="prop">body</span>={() =&gt; &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Content"</span> <span class="prop">type</span>=<span class="string">"p"</span> /&gt;}
-/&gt;
+{`// Render props — every slot uses () => JSX
+<Card
+  padding="lg"
+  radius="lg"
+  shadow
+  header={() => <Text text="Title" type="h2" />}
+  body={() => <Text text="Content" type="p" />}
+/>
 
-<span class="comment">// Avatar — content priority: src &gt; icon &gt; fallback</span>
-&lt;<span class="component">Avatar</span> <span class="prop">src</span>=<span class="string">"/user.jpg"</span> <span class="prop">size</span>=<span class="string">"lg"</span> /&gt;
-&lt;<span class="component">Avatar</span> <span class="prop">icon</span>={Icons.icon.Lock} <span class="prop">size</span>=<span class="string">"md"</span> /&gt;
-&lt;<span class="component">Avatar</span> <span class="prop">fallback</span>={() =&gt; &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"JD"</span> <span class="prop">type</span>=<span class="string">"p"</span> /&gt;} /&gt;
+// Avatar — content priority: src > icon > fallback
+<Avatar src="/user.jpg" size="lg" />
+<Avatar icon={Icons.icon.Lock} size="md" />
+<Avatar fallback={() => <Text text="JD" type="p" />} />
 
-<span class="comment">// Gesture passthrough via gest</span>
-&lt;<span class="component">Input</span>
-  <span class="prop">gest</span>={{ <span class="prop">onChange</span>: (e) =&gt; setSearch(e.target.value) }}
-/&gt;
-&lt;<span class="component">Button</span>
-  <span class="prop">gest</span>={{ <span class="prop">onClick</span>: submit, <span class="prop">disabled</span>: isLoading }}
-/&gt;`}
+// Gesture passthrough via gest
+<Input
+  gest={{ onChange: (e) => setSearch(e.target.value) }}
+/>
+<Button
+  gest={{ onClick: submit, disabled: isLoading }}
+/>`}
             </CodeBlock>
           </div>
         </div>

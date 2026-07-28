@@ -42,30 +42,31 @@ export function ButtonPage() {
     <ComponentPage
       title="Button"
       description="A styled button with customizable appearance, border, padding, and gesture support. Ideal for actions, form submissions, and interactive elements. Use the gest prop for onClick handlers and accessibility attributes."
+      related={["Text", "Icon", "Card", "Input"]}
       props={props}
-      example={`&lt;<span class="component">Button</span>
-  <span class="prop">borderRadius</span>=<span class="string">"12px"</span>
-  <span class="prop">padding</span>=<span class="string">".75rem 1.5rem"</span>
-  <span class="prop">border</span>=<span class="string">"1px solid rgba(34,197,94,0.3)"</span>
-  <span class="prop">style</span>={{ <span class="prop">background</span>: <span class="string">"linear-gradient(135deg, #22c55e, #16a34a)"</span> }}
-  <span class="prop">child</span>={() =&gt; (
-    &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Click Me"</span> <span class="prop">type</span>=<span class="string">"p"</span> <span class="prop">size</span>=<span class="string">".9rem"</span> <span class="prop">color</span>=<span class="string">"#0d0906"</span> /&gt;
+      example={`<Button
+  borderRadius="12px"
+  padding=".75rem 1.5rem"
+  border="1px solid rgba(34,197,94,0.3)"
+  style={{ background: "linear-gradient(135deg, #22c55e, #16a34a)" }}
+  child={() => (
+    <Text text="Click Me" type="p" size=".9rem" color="#0d0906" />
   )}
-  <span class="prop">gest</span>={{ <span class="prop">onClick</span>: () =&gt; console.log(<span class="string">"clicked"</span>) }}
-/&gt;`}
+  gest={{ onClick: () => console.log("clicked") }}
+/>`}
       notes={notes}
     >
       <ExampleCard
         title="Gradient Buttons"
         description="Styled buttons with gradient backgrounds, rounded corners, and box shadows. Use border and style props for full visual control."
-        code={`<span class="comment">// Green gradient primary button</span>
-&lt;<span class="component">Button</span>
-  <span class="prop">borderRadius</span>=<span class="string">"12px"</span>
-  <span class="prop">padding</span>=<span class="string">".75rem 1.5rem"</span>
-  <span class="prop">border</span>=<span class="string">"1px solid rgba(34,197,94,0.3)"</span>
-  <span class="prop">style</span>={{ <span class="prop">background</span>: <span class="string">"linear-gradient(135deg, #22c55e, #16a34a)"</span> }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Get Started"</span> <span class="prop">type</span>=<span class="string">"p"</span> /&gt;}
-/&gt;`}
+        code={`// Green gradient primary button
+<Button
+  borderRadius="12px"
+  padding=".75rem 1.5rem"
+  border="1px solid rgba(34,197,94,0.3)"
+  style={{ background: "linear-gradient(135deg, #22c55e, #16a34a)" }}
+  child={() => <Text text="Get Started" type="p" />}
+/>`}
       >
         <Stack direction="row" gap="1rem" align="center" child={() => (
           <>
@@ -102,21 +103,21 @@ export function ButtonPage() {
       <ExampleCard
         title="Button with Icon"
         description="Combine buttons with icons for visual context. Use Stack with direction='row' to align icon and text horizontally."
-        code={`<span class="comment">// Button with icon and text</span>
-&lt;<span class="component">Button</span>
-  <span class="prop">borderRadius</span>=<span class="string">"10px"</span>
-  <span class="prop">padding</span>=<span class="string">".65rem 1.25rem"</span>
-  <span class="prop">border</span>=<span class="string">"1px solid rgba(34,197,94,0.3)"</span>
-  <span class="prop">style</span>={{ <span class="prop">background</span>: <span class="string">"rgba(34,197,94,0.1)"</span> }}
-  <span class="prop">child</span>={() =&gt; (
-    &lt;<span class="component">Stack</span> <span class="prop">direction</span>=<span class="string">"row"</span> <span class="prop">gap</span>=<span class="string">".5rem"</span> <span class="prop">child</span>={() =&gt; (
-      &lt;&gt;
-        &lt;<span class="component">Icon</span> <span class="prop">icon</span>={Icons.icon.Star} <span class="prop">size</span>=<span class="string">"xs"</span> <span class="prop">color</span>=<span class="string">"#22c55e"</span> /&gt;
-        &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Premium"</span> <span class="prop">type</span>=<span class="string">"p"</span> <span class="prop">color</span>=<span class="string">"#22c55e"</span> /&gt;
-      &lt;/&gt;
-    )} /&gt;
+        code={`// Button with icon and text
+<Button
+  borderRadius="10px"
+  padding=".65rem 1.25rem"
+  border="1px solid rgba(34,197,94,0.3)"
+  style={{ background: "rgba(34,197,94,0.1)" }}
+  child={() => (
+    <Stack direction="row" gap=".5rem" child={() => (
+      <>
+        <Icon icon={Icons.icon.Star} size="xs" color="#22c55e" />
+        <Text text="Premium" type="p" color="#22c55e" />
+      </>
+    )} />
   )}
-/&gt;`}
+/>`}
       >
         <Stack direction="row" gap="1rem" align="center" child={() => (
           <>
@@ -161,14 +162,14 @@ export function ButtonPage() {
       <ExampleCard
         title="Icon-Only Button"
         description="Circular button with just an icon. Set borderRadius='50%' for a perfect circle."
-        code={`<span class="comment">// Circular icon button</span>
-&lt;<span class="component">Button</span>
-  <span class="prop">borderRadius</span>=<span class="string">"50%"</span>
-  <span class="prop">padding</span>=<span class="string">".75rem"</span>
-  <span class="prop">border</span>=<span class="string">"1px solid rgba(34,197,94,0.3)"</span>
-  <span class="prop">style</span>={{ <span class="prop">background</span>: <span class="string">"rgba(34,197,94,0.1)"</span> }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">Icon</span> <span class="prop">icon</span>={Icons.icon.Zap} <span class="prop">size</span>=<span class="string">"sm"</span> <span class="prop">color</span>=<span class="string">"#22c55e"</span> /&gt;}
-/&gt;`}
+        code={`// Circular icon button
+<Button
+  borderRadius="50%"
+  padding=".75rem"
+  border="1px solid rgba(34,197,94,0.3)"
+  style={{ background: "rgba(34,197,94,0.1)" }}
+  child={() => <Icon icon={Icons.icon.Zap} size="sm" color="#22c55e" />}
+/>`}
       >
         <Stack direction="row" gap="1rem" align="center" child={() => (
           <>
@@ -200,15 +201,15 @@ export function ButtonPage() {
       <ExampleCard
         title="Button with Gesture Handler"
         description="Use the gest prop to attach click handlers, disabled states, and other native button events. The gest prop is typed to HTMLButtonElement."
-        code={`<span class="comment">// Button with onClick via gest prop</span>
-&lt;<span class="component">Button</span>
-  <span class="prop">borderRadius</span>=<span class="string">"14px"</span>
-  <span class="prop">padding</span>=<span class="string">".85rem 2rem"</span>
-  <span class="prop">border</span>=<span class="string">"1px solid rgba(245,158,11,0.3)"</span>
-  <span class="prop">style</span>={{ <span class="prop">background</span>: <span class="string">"linear-gradient(135deg, #f59e0b, #d97706)"</span> }}
-  <span class="prop">child</span>={() =&gt; &lt;<span class="component">Text</span> <span class="prop">text</span>=<span class="string">"Click Me"</span> <span class="prop">type</span>=<span class="string">"p"</span> <span class="prop">color</span>=<span class="string">"#0d0906"</span> /&gt;}
-  <span class="prop">gest</span>={{ <span class="prop">onClick</span>: () =&gt; alert(<span class="string">"clicked!"</span>) }}
-/&gt;`}
+        code={`// Button with onClick via gest prop
+<Button
+  borderRadius="14px"
+  padding=".85rem 2rem"
+  border="1px solid rgba(245,158,11,0.3)"
+  style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
+  child={() => <Text text="Click Me" type="p" color="#0d0906" />}
+  gest={{ onClick: () => alert("clicked!") }}
+/>`}
       >
         <Button
           borderRadius="14px"

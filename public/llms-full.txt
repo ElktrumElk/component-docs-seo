@@ -1,0 +1,641 @@
+# elk-components — Full Documentation
+
+> React animation, layout, and styling toolkit with declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.
+> Author: Elkanah Cole (elktrumelk) — https://github.com/elktrumelk
+> License: MIT
+> Version: 1.3.9
+
+---
+
+## Installation
+
+```bash
+npm install elk-components
+```
+
+Peer dependencies: react, react-dom, motion (optional, for Motion mode animations).
+
+---
+
+## Getting Started
+
+```tsx
+import {
+  Button, Text, Card, Avatar,
+  Animation, Transition, LetterAnimation,
+  Icon, Icons
+} from "elk-components";
+
+export default function App() {
+  return (
+    <Card padding="lg">
+      <Animation
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        child={() => <Text text="Hello, elk-components!" type="h1" />}
+      />
+      <Avatar src="/user.jpg" size="lg" />
+      <Button child={() => <Icon icon={Icons.icon.ShoppingCart} />} />
+    </Card>
+  );
+}
+```
+
+---
+
+## Conventions
+
+- All components accept `className` and `style` props
+- Components use `child` prop (render function) for content, not `children`
+- Theming via React Context — wrap app in `<ThemeProvider>`
+- Animations are auto-detected: Motion props → Motion mode, otherwise → Legacy Web Animations API
+- All components are fully typed with TypeScript
+
+---
+
+## Components
+
+### Animation
+
+Dual-mode animation component. Automatically uses Motion (if motion props are present) or the native Web Animations API (legacy mode).
+
+**Motion Mode Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| child | ElementType | Yes | Content to animate (render prop) |
+| initial | Record<string, any> | No | Initial state |
+| animate | Record<string, any> | No | Target state |
+| exit | Record<string, any> | No | Exit state (use with AnimatePresence) |
+| whileHover | Record<string, any> | No | State on hover |
+| whileTap | Record<string, any> | No | State on tap/click |
+| whileInView | Record<string, any> | No | State when in viewport |
+| transition | MotionTransition | No | Spring or tween config |
+| variants | Record<string, any> | No | Named animation states |
+| layout | boolean \| "position" \| "size" | No | Layout animations |
+| viewport | { once?: boolean; amount?: number } | No | Viewport intersection config |
+
+**Legacy Mode Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| child | ElementType | required | Content to animate |
+| keyframes | Keyframe[] \| Record<string, any[]> | — | Web Animations API keyframes |
+| duration | number | 300 | Duration in ms |
+| delay | number | 0 | Delay in ms |
+| iterations | number | 1 | Repeat count (Infinity for infinite) |
+| direction | PlaybackDirection | "normal" | "normal", "reverse", "alternate" |
+| fill | FillMode | "forwards" | Style retention after animation |
+| easing | string | "ease" | CSS timing function |
+| isAutomatic | boolean | true | Play on mount |
+| gesture | "click" \| "hover" \| "focus" \| "scroll" \| "none" | "none" | Trigger gesture |
+
+**Examples:**
+```tsx
+// Motion mode — spring animation
+<Animation
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+  child={() => <div>I spring in from below</div>}
+/>
+
+// Motion mode — hover + tap
+<Animation
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  child={() => <div>Hover and tap me</div>}
+/>
+
+// Motion mode — scroll-triggered
+<Animation
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  child={() => <div>Scroll me into view</div>}
+/>
+
+// Legacy mode — auto fade-in
+<Animation
+  isAutomatic
+  duration={600}
+  easing="ease-out"
+  keyframes={[
+    { opacity: 0, transform: "translateY(10px)" },
+    { opacity: 1, transform: "translateY(0)" },
+  ]}
+  child={() => <div>I fade in on mount</div>}
+/>
+
+// Legacy mode — click bounce
+<Animation
+  gesture="click"
+  duration={400}
+  keyframes={[
+    { transform: "scale(1)" },
+    { transform: "scale(1.2)" },
+    { transform: "scale(0.95)" },
+    { transform: "scale(1)" },
+  ]}
+  child={() => <button>Click to bounce</button>}
+/>
+```
+
+---
+
+### LetterAnimation
+
+Character-by-character text animation with 20 built-in presets.
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| text | string | required | Text to animate |
+| type | "characters" \| "words" \| "lines" | "characters" | Split unit |
+| animation | string | "bounceIn" | Preset name |
+| size | string | "1rem" | Font size |
+| stagger | number | 50 | Delay between units in ms |
+| duration | number | 300 | Animation duration in ms |
+| delay | number | 0 | Initial delay in ms |
+
+**Presets:** bounceIn, glitch, elastic, typewriter, wave, spiral, flip, rotate, scale, fade, slide, blur, glow, shake, swing, pulse, rubberBand, jello, heartBeat, flash
+
+**Examples:**
+```tsx
+<LetterAnimation
+  text="Welcome to elk-components"
+  type="words"
+  animation="bounceIn"
+  size="3rem"
+  stagger={60}
+  duration={400}
+/>
+
+<LetterAnimation
+  text="Glitch Effect"
+  animation="glitch"
+  size="2rem"
+  stagger={30}
+/>
+```
+
+---
+
+### Transition
+
+CSS-based enter/exit transitions with 20+ built-in types.
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| child | ElementType | required | Content to transition |
+| type | string | "fade" | Transition preset |
+| show | boolean | true | Visibility toggle |
+| duration | number | 300 | Duration in ms |
+| delay | number | 0 | Delay in ms |
+| easing | string | "ease" | Timing function |
+
+**Presets:** fade, slide-up, slide-down, slide-left, slide-right, zoom, flip, rotate, blur, bounce, elastic, swing, wobble, hinge, roll
+
+```tsx
+<Transition type="slide-up" show={isVisible}>
+  <div>I slide in and out</div>
+</Transition>
+```
+
+---
+
+### Button
+
+Customizable button with gesture support.
+
+**Props:**
+| Prop | Type | Description |
+|------|------|-------------|
+| child | ElementType | Button content (render prop) |
+| borderRadius | string | Border radius |
+| padding | string | Padding |
+| background | string | Background color |
+| color | string | Text color |
+| border | string | Border style |
+| fontSize | string | Font size |
+| fontWeight | string | Font weight |
+| gap | string | Gap between items |
+| hover | object | Hover state styles |
+| tap | object | Tap state styles |
+| disabled | boolean | Disabled state |
+
+```tsx
+<Button
+  borderRadius="12px"
+  padding="12px 24px"
+  background="rgba(34,197,94,0.15)"
+  color="#4ade80"
+  hover={{ background: "rgba(34,197,94,0.25)" }}
+  tap={{ scale: 0.97 }}
+  child={() => <Text text="Get Started" />}
+/>
+```
+
+---
+
+### Text
+
+Typography component with semantic variants.
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| text | string | required | Text content |
+| type | "h1" \| "h2" \| "h3" \| "h4" \| "body" \| "caption" \| "overline" | "body" | Semantic type |
+| color | string | — | Custom color |
+| weight | string | — | Font weight |
+| size | string | — | Font size |
+| align | "left" \| "center" \| "right" | — | Text alignment |
+| lineHeight | string | — | Line height |
+| letterSpacing | string | — | Letter spacing |
+
+```tsx
+<Text text="Page Title" type="h1" />
+<Text text="Subtitle" type="h2" color="#a3a3a3" />
+<Text text="Body text content" type="body" />
+<Text text="CAPTION" type="overline" />
+```
+
+---
+
+### Card
+
+Container with glass morphism effect.
+
+**Props:**
+| Prop | Type | Description |
+|------|------|-------------|
+| child | ElementType | Card content |
+| padding | string | Padding |
+| background | string | Background |
+| border | string | Border |
+| borderRadius | string | Border radius |
+| glass | boolean | Enable glass morphism |
+
+```tsx
+<Card padding="lg" glass>
+  <Text text="Card Title" type="h3" />
+  <Text text="Card content goes here" type="body" />
+</Card>
+```
+
+---
+
+### Badge
+
+Status and label badges.
+
+**Props:**
+| Prop | Type | Description |
+|------|------|-------------|
+| text | string | Badge text |
+| variant | "primary" \| "success" \| "warning" \| "error" \| "info" | Color variant |
+| size | "sm" \| "md" \| "lg" | Badge size |
+
+```tsx
+<Badge text="Active" variant="success" size="sm" />
+<Badge text="Pending" variant="warning" />
+<Badge text="Error" variant="error" />
+```
+
+---
+
+### Avatar
+
+User avatar with presence indicator.
+
+**Props:**
+| Prop | Type | Description |
+|------|------|-------------|
+| src | string | Image URL |
+| alt | string | Alt text |
+| size | "xs" \| "sm" \| "md" \| "lg" \| "xl" | Avatar size |
+| presence | "online" \| "offline" \| "away" \| "busy" | Presence indicator |
+| borderRadius | string | Border radius |
+
+```tsx
+<Avatar src="/user.jpg" size="lg" presence="online" />
+```
+
+---
+
+### Icon
+
+SVG icon component with 205 built-in icons.
+
+**Props:**
+| Prop | Type | Description |
+|------|------|-------------|
+| icon | string | Icon name from Icons |
+| size | number | Icon size in px |
+| color | string | Icon color |
+
+```tsx
+<Icon icon={Icons.icon.ShoppingCart} size={24} color="#4ade80" />
+<Icon icon={Icons.icon.Heart} size={20} />
+<Icon icon={Icons.icon.ArrowRight} />
+```
+
+**Icon categories:** arrows, communication, devices, files, media, navigation, social, interface, charts, misc
+
+---
+
+### IconNetwork
+
+Blockchain network icons (Ethereum, Bitcoin, Solana, etc.).
+
+```tsx
+<IconNetwork network="ethereum" size={24} />
+<IconNetwork network="bitcoin" size={24} />
+<IconNetwork network="solana" size={24} />
+```
+
+---
+
+### Input
+
+Text input with validation and styling.
+
+**Props:**
+| Prop | Type | Description |
+|------|------|-------------|
+| value | string | Input value |
+| onChange | (value: string) => void | Change handler |
+| placeholder | string | Placeholder text |
+| label | string | Input label |
+| error | string | Error message |
+| type | "text" \| "password" \| "email" \| "number" | Input type |
+
+```tsx
+<Input
+  label="Email"
+  placeholder="you@example.com"
+  type="email"
+  value={email}
+  onChange={setEmail}
+/>
+```
+
+---
+
+### Tab / TabView
+
+Tab navigation and content panels.
+
+```tsx
+<TabView>
+  <Tab label="Overview">
+    <Text text="Overview content" />
+  </Tab>
+  <Tab label="API">
+    <Text text="API documentation" />
+  </Tab>
+  <Tab label="Examples">
+    <Text text="Code examples" />
+  </Tab>
+</TabView>
+```
+
+---
+
+### List / ListView
+
+List containers with optional virtualization.
+
+```tsx
+<ListView items={data} renderItem={(item) => (
+  <Card padding="md">
+    <Text text={item.title} type="body" />
+  </Card>
+)} />
+```
+
+---
+
+### Tiles
+
+Grid tile layout.
+
+```tsx
+<Tiles columns={3} gap="16px">
+  <Card padding="md"><Text text="Tile 1" /></Card>
+  <Card padding="md"><Text text="Tile 2" /></Card>
+  <Card padding="md"><Text text="Tile 3" /></Card>
+</Tiles>
+```
+
+---
+
+## Layout Components
+
+### Container
+
+Responsive container with max-width breakpoints.
+
+```tsx
+<Container maxWidth="1200px" padding="20px">
+  <Text text="Contained content" />
+</Container>
+```
+
+### Stack
+
+Flexbox stack layout (vertical or horizontal).
+
+```tsx
+<Stack direction="column" gap="16px">
+  <Text text="Item 1" />
+  <Text text="Item 2" />
+  <Text text="Item 3" />
+</Stack>
+```
+
+### Center
+
+Centering layout.
+
+```tsx
+<Center>
+  <Text text="Centered content" />
+</Center>
+```
+
+### Section
+
+Page section with optional divider.
+
+```tsx
+<Section title="Features" divider="wave">
+  <Text text="Section content" />
+</Section>
+```
+
+### Divider
+
+Decorative dividers. Variants: wave, curl, dots, line.
+
+```tsx
+<Divider variant="wave" />
+```
+
+### Padding / Gap
+
+Spacing utilities.
+
+```tsx
+<Padding all="20px">
+  <Text text="Padded content" />
+</Padding>
+
+<Gap size="16px" />
+```
+
+### ScrollView
+
+Custom scrollbar container.
+
+```tsx
+<ScrollView height="400px">
+  <Text text="Scrollable content..." />
+</ScrollView>
+```
+
+### Image
+
+Image with loading states.
+
+```tsx
+<Image src="/photo.jpg" alt="Description" width="100%" />
+```
+
+### Span
+
+Inline layout wrapper.
+
+```tsx
+<Span display="inline-flex" gap="8px">
+  <Text text="Inline" />
+  <Text text="content" />
+</Span>
+```
+
+### Panel
+
+Collapsible panel.
+
+```tsx
+<Panel title="Details" defaultOpen>
+  <Text text="Panel content" />
+</Panel>
+```
+
+---
+
+## Navigation Components
+
+### Header
+
+App header/navbar.
+
+```tsx
+<Header
+  brand="My App"
+  links={[
+    { label: "Home", href: "/" },
+    { label: "Docs", href: "/docs" },
+  ]}
+/>
+```
+
+### Navigator
+
+Route navigator for SPA-style navigation.
+
+### BottomModal
+
+Bottom sheet modal.
+
+```tsx
+<BottomModal show={isOpen} onClose={() => setIsOpen(false)}>
+  <Text text="Modal content" />
+</BottomModal>
+```
+
+### SidePanel
+
+Side panel overlay.
+
+```tsx
+<SidePanel show={isOpen} onClose={() => setIsOpen(false)} side="right">
+  <Text text="Panel content" />
+</SidePanel>
+```
+
+---
+
+## Hooks
+
+### useTheme
+
+Access the current theme context.
+
+```tsx
+const { theme, colors, fonts } = useTheme();
+```
+
+### useBreakpoint
+
+Responsive breakpoint detection.
+
+```tsx
+const breakpoint = useBreakpoint(); // "xs" | "sm" | "md" | "lg" | "xl"
+```
+
+### useMediaQuery
+
+CSS media query matching.
+
+```tsx
+const isMobile = useMediaQuery("(max-width: 640px)");
+```
+
+### useReducedMotion
+
+Accessibility motion preference detection.
+
+```tsx
+const prefersReducedMotion = useReducedMotion();
+```
+
+---
+
+## Icons
+
+205 built-in SVG icons. Access via `Icons.icon.*`.
+
+```tsx
+import { Icon, Icons } from "elk-components";
+
+<Icon icon={Icons.icon.Home} />
+<Icon icon={Icons.icon.Settings} />
+<Icon icon={Icons.icon.User} />
+<Icon icon={Icons.icon.Search} />
+<Icon icon={Icons.icon.ShoppingCart} />
+<Icon icon={Icons.icon.Heart} />
+<Icon icon={Icons.icon.Star} />
+```
+
+---
+
+## Links
+
+- npm: https://www.npmjs.com/package/elk-components
+- GitHub: https://github.com/elktrumelk/elk-components
+- Documentation: https://elk-components.dev/docs
+- Author: https://github.com/elktrumelk

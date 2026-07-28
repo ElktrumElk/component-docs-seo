@@ -24,7 +24,7 @@ export function CodeBlock({
         </div>
       )}
       <pre className="code-block rounded-none border-0 m-0">
-        <code dangerouslySetInnerHTML={{ __html: children }} />
+        <code>{children}</code>
       </pre>
     </div>
   );
