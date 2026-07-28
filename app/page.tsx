@@ -117,7 +117,8 @@ export default function HomePage() {
   return (
     <>
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass">
+      <header className="fixed top-0 left-0 right-0 z-50 glass">
+      <nav>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="text-2xl font-bold gradient-text">elk</span>
@@ -152,7 +153,9 @@ export default function HomePage() {
           </div>
         </div>
       </nav>
+      </header>
 
+      <main>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] rounded-full bg-primary/8 blur-[140px] pointer-events-none" />
@@ -161,7 +164,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center">
           <div className="animate-slide-up">
             <span className="inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-primary/30 bg-primary/10 text-primary-light">
-              v1.3.8 &middot; MIT License &middot; 3 Dependencies
+              v1.3.9 &middot; MIT License &middot; 3 Dependencies
             </span>
           </div>
 
@@ -641,6 +644,7 @@ const width = useComponentData<number>(
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="border-t border-border py-10 sm:py-12 px-5 sm:px-6">
@@ -656,7 +660,7 @@ const width = useComponentData<number>(
             <a href="https://github.com/elktrumelk/elk-components" target="_blank" rel="noopener noreferrer" className="hover:text-primary-light transition-colors">
               GitHub
             </a>
-            <span>v1.3.8</span>
+            <span>v1.3.9</span>
             <span>MIT License</span>
           </div>
           <p className="text-xs text-text-muted">

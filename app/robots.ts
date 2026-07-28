@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://elk-components.dev/sitemap.xml",
+    sitemap: "https://component-docs-seo.vercel.app/sitemap.xml",
   };
 }

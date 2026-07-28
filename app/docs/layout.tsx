@@ -165,7 +165,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       />
       <main className="flex-1 min-w-0">
         {/* Top bar */}
-        <div className="sticky top-0 z-40 glass border-b border-border">
+        <header className="sticky top-0 z-40 glass border-b border-border">
           <div className="flex items-center justify-between px-4 sm:px-6 h-14">
             <div className="flex items-center gap-3">
               {/* Mobile hamburger */}
@@ -193,7 +193,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
               </span>
             </div>
             <div className="flex items-center gap-3 sm:gap-4">
-              <span className="text-xs text-text-muted font-mono hidden sm:inline">v1.3.8</span>
+              <span className="text-xs text-text-muted font-mono hidden sm:inline">v1.3.9</span>
               <a
                 href="https://www.npmjs.com/package/elk-components"
                 target="_blank"
@@ -212,8 +212,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
               </a>
             </div>
           </div>
-        </div>
-        {/* Content area */}
+        </header>
         <div
           className="flex-1 min-w-0"
           style={{

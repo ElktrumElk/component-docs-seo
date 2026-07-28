@@ -1,0 +1,76 @@
+{
+  "$schema": "https://agent-skills.github.io/index.json",
+  "name": "elk-components",
+  "description": "React animation, layout, and styling toolkit with declarative motion, transitions, letter animations, and composable UI primitives with 205 built-in SVG icons.",
+  "url": "https://elk-components.dev",
+  "version": "1.3.9",
+  "author": {
+    "name": "Elkanah Cole",
+    "url": "https://github.com/elktrumelk"
+  },
+  "skills": [
+    {
+      "name": "install",
+      "description": "Install elk-components via npm, yarn, or pnpm",
+      "actions": [
+        {
+          "name": "install-npm",
+          "description": "Install using npm",
+          "command": "npm install elk-components"
+        },
+        {
+          "name": "install-yarn",
+          "description": "Install using yarn",
+          "command": "yarn add elk-components"
+        },
+        {
+          "name": "install-pnpm",
+          "description": "Install using pnpm",
+          "command": "pnpm add elk-components"
+        }
+      ]
+    },
+    {
+      "name": "components",
+      "description": "Access component documentation and API reference",
+      "actions": [
+        {
+          "name": "list-components",
+          "description": "Get a list of all available components",
+          "endpoint": "https://elk-components.dev/llms.txt"
+        },
+        {
+          "name": "get-component-docs",
+          "description": "Get documentation for a specific component",
+          "endpoint": "https://elk-components.dev/llms-full.txt"
+        }
+      ]
+    },
+    {
+      "name": "navigation",
+      "description": "Navigate the documentation site",
+      "actions": [
+        {
+          "name": "go-to-docs",
+          "description": "Open the documentation home",
+          "url": "https://elk-components.dev/docs"
+        },
+        {
+          "name": "go-to-overview",
+          "description": "Open the getting started overview",
+          "url": "https://elk-components.dev/docs?view=overview"
+        },
+        {
+          "name": "go-to-install",
+          "description": "Open the installation guide",
+          "url": "https://elk-components.dev/docs?view=install"
+        }
+      ]
+    }
+  ],
+  "dataTypes": {
+    "components": "Array of component objects with name, description, props, and examples",
+    "hooks": "Array of hook objects with name, description, parameters, and return types",
+    "icons": "Array of icon objects with name, category, and SVG path data"
+  }
+}
