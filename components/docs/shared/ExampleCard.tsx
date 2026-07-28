@@ -23,7 +23,7 @@ export function ExampleCard({ title, description, children, code }: ExampleCardP
       <p className="text-text-secondary text-sm leading-relaxed pl-4">
         {description}
       </p>
-      <div className="p-5 md:p-6 rounded-xl border border-border bg-surface-card/60">
+      <div className="p-5 md:p-6 rounded-xl  bg-surface-card/60" style={{border: '1px solid #00ff4860'}}>
         {children}
       </div>
       {code && <CodeBlock>{code}</CodeBlock>}

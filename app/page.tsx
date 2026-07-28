@@ -1,3 +1,5 @@
+
+import { Layout, Move,  Wind } from "elk-components/icons";
 import Link from "next/link";
 
 const FEATURES = [
@@ -626,12 +628,13 @@ function Counter() {
               {HOOKS.map((h) => (
                 <div
                   key={h.name}
-                  className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border border-border bg-surface-card/40 hover:border-primary/20 transition-colors"
+                  style={{border: '.4px solid #ffffff24'}}
+                  className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border border bg-surface-card/40 hover:border-primary/20 transition-colors"
                 >
-                  <code className="shrink-0 text-primary-light font-mono text-sm font-bold mt-0.5">
+                  <code className="shrink-0 text-primary-light font-mono text-sm font-bold mt-0.5" style={{color: '#ff9a0c'}}>
                     {h.name}
                   </code>
-                  <p className="text-text-secondary text-sm leading-relaxed">
+                  <p className="text-text-secondary text-sm leading-relaxed" style={{color: '#f5f5f'}}>
                     {h.desc}
                   </p>
                 </div>
@@ -688,8 +691,10 @@ const width = useComponentData<number>(
             </div>
 
             <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
-              <article className="feature-card text-center">
-                <div className="text-3xl mb-3">T</div>
+              <article className="feature-card text-center" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div className="text-3xl mb-3" style={{alignSelf: 'center'}}>
+                  <Layout color="orange"/>
+                </div>
                 <h3 className="font-bold mb-2">Typed CSS Units</h3>
                 <p className="text-text-secondary text-sm">
                   Template literal types for gap, padding, and borderRadius.
@@ -708,8 +713,10 @@ const width = useComponentData<number>(
                   .
                 </p>
               </article>
-              <article className="feature-card text-center">
-                <div className="text-3xl mb-3">E</div>
+              <article className="feature-card text-center" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div className="text-3xl mb-3" style={{alignSelf: 'center'}}>
+                  <Wind color="green"/>
+                  </div>
                 <h3 className="font-bold mb-2">Enum Sizing</h3>
                 <p className="text-text-secondary text-sm">
                   Badge, Card, Avatar, Icon — use string presets{" "}
@@ -723,8 +730,10 @@ const width = useComponentData<number>(
                   mapped to internal size dictionaries.
                 </p>
               </article>
-              <article className="feature-card text-center">
-                <div className="text-3xl mb-3">G</div>
+              <article className="feature-card text-center" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+               <div className="text-3xl mb-3" style={{alignSelf: 'center'}}>
+                  <Move color="#01b7ff"/>
+                </div>
                 <h3 className="font-bold mb-2">Gesture Passthrough</h3>
                 <p className="text-text-secondary text-sm">
                   The{" "}

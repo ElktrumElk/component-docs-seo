@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Animation, Stack, Text, Button } from "elk-components";
+import { Animation} from "elk-components";
 import { ComponentPage } from "@/components/docs/shared/ComponentPage";
 import { ExampleCard } from "@/components/docs/shared/ExampleCard";
 
@@ -21,18 +21,18 @@ const motionProps = [
   { prop: "style", type: "CSSProperties", required: false, description: "Inline styles" },
 ];
 
-const legacyProps = [
-  { prop: "child", type: "ElementType", required: true, description: "Content to animate (render prop)" },
-  { prop: "keyframes", type: "Keyframe[] | Record<string, any[]>", required: false, description: "Web Animations API keyframes — array or object syntax" },
-  { prop: "duration", type: "number", required: false, default: "300", description: "Duration in milliseconds" },
-  { prop: "delay", type: "number", required: false, default: "0", description: "Delay before animation starts in ms" },
-  { prop: "iterations", type: "number", required: false, default: "1", description: "Repeat count — use Infinity for infinite loops" },
-  { prop: "direction", type: "PlaybackDirection", required: false, default: '"normal"', description: 'Play direction: "normal", "reverse", "alternate"' },
-  { prop: "fill", type: "FillMode", required: false, default: '"forwards"', description: "Style retention after animation completes" },
-  { prop: "easing", type: "string", required: false, default: '"ease"', description: "CSS timing function — ease, linear, ease-in-out, cubic-bezier(...)" },
-  { prop: "isAutomatic", type: "boolean", required: false, default: "true", description: "Play immediately on mount" },
-  { prop: "gesture", type: '"click" | "hover" | "focus" | "scroll" | "none"', required: false, default: '"none"', description: "Trigger gesture — play animation on user interaction" },
-];
+// const legacyProps = [
+//   { prop: "child", type: "ElementType", required: true, description: "Content to animate (render prop)" },
+//   { prop: "keyframes", type: "Keyframe[] | Record<string, any[]>", required: false, description: "Web Animations API keyframes — array or object syntax" },
+//   { prop: "duration", type: "number", required: false, default: "300", description: "Duration in milliseconds" },
+//   { prop: "delay", type: "number", required: false, default: "0", description: "Delay before animation starts in ms" },
+//   { prop: "iterations", type: "number", required: false, default: "1", description: "Repeat count — use Infinity for infinite loops" },
+//   { prop: "direction", type: "PlaybackDirection", required: false, default: '"normal"', description: 'Play direction: "normal", "reverse", "alternate"' },
+//   { prop: "fill", type: "FillMode", required: false, default: '"forwards"', description: "Style retention after animation completes" },
+//   { prop: "easing", type: "string", required: false, default: '"ease"', description: "CSS timing function — ease, linear, ease-in-out, cubic-bezier(...)" },
+//   { prop: "isAutomatic", type: "boolean", required: false, default: "true", description: "Play immediately on mount" },
+//   { prop: "gesture", type: '"click" | "hover" | "focus" | "scroll" | "none"', required: false, default: '"none"', description: "Trigger gesture — play animation on user interaction" },
+// ];
 
 const HoverTapDemo = function HoverTapDemo() {
   const [hoverCount, setHoverCount] = useState(0);

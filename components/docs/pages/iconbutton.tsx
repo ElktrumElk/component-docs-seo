@@ -1,8 +1,9 @@
 "use client";
 
-import { IconButton, Icons, Stack } from "elk-components";
+import { IconButton,  Stack } from "elk-components";
 import { ComponentPage } from "@/components/docs/shared/ComponentPage";
 import { ExampleCard } from "@/components/docs/shared/ExampleCard";
+import { Heart, Lock, Star } from "elk-components/icons";
 
 const props = [
   { prop: "icon", type: "ElementType", required: false, description: "Icon component to render" },
@@ -36,11 +37,11 @@ export function IconButtonPage() {
 <IconButton borderRadius="50%" icon={() => <Icon icon={Icons.icon.Heart} size="sm" />} />
 <IconButton borderRadius="50%" icon={() => <Icon icon={Icons.icon.Star} size="sm" />} />`}
       >
-        <Stack direction="row" gap="1rem" align="center" child={() => (
+        <Stack direction="row" gap="1rem" align="center"  child={() => (
           <>
-            <IconButton borderRadius="50%" icon={() => <Icons.icon.Lock size="sm" color="#6366f1" />} />
-            <IconButton borderRadius="50%" icon={() => <Icons.icon.Heart size="sm" color="#ef4444" />} />
-            <IconButton borderRadius="50%" icon={() => <Icons.icon.Star size="sm" color="#f59e0b" />} />
+            <IconButton borderRadius="50%" style={{background: '#6365f140'}} icon={() => <Lock  color="#6366f1" />} />
+            <IconButton borderRadius="50%" style={{background: '#ef444430'}} icon={() => <Heart  color="#ef4444" />} />
+            <IconButton style={{background: '#ffe60437'}} borderRadius="50%" icon={() => <Star color="#f59e0b" fill={true} fillColor="red"/>} />
           </>
         )} />
       </ExampleCard>
