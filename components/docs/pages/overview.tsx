@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CodeBlock } from "@/components/docs/shared/CodeBlock";
+import { Icon, Icons } from "elk-components";
 
 export function OverviewPage() {
   return (
@@ -28,7 +29,9 @@ export function OverviewPage() {
           </p>
         </div>
         <div className="feature-card">
-          <span className="text-2xl mb-3 block">T</span>
+          <span className="text-2xl mb-3 block">
+            <Icon icon={Icons.icon.Leaf}/>
+          </span>
           <h3 className="font-bold mb-1.5">Letter Animations</h3>
           <p className="text-text-secondary text-sm leading-relaxed">
             <span className="highlight-cyan">20 built-in presets</span> including bounceIn,
@@ -37,7 +40,9 @@ export function OverviewPage() {
           </p>
         </div>
         <div className="feature-card">
-          <span className="text-2xl mb-3 block">R</span>
+          <span className="text-2xl mb-3 block">
+            <Icon icon={Icons.icon.Airplay}/>
+          </span>
           <h3 className="font-bold mb-1.5">Transitions</h3>
           <p className="text-text-secondary text-sm leading-relaxed">
             <span className="highlight-amber">13 CSS effect presets</span> — fade, slide,
@@ -46,7 +51,9 @@ export function OverviewPage() {
           </p>
         </div>
         <div className="feature-card">
-          <span className="text-2xl mb-3 block">I</span>
+          <span className="text-2xl mb-3 block">
+            <Icon icon={Icons.icon.Layout}/>
+          </span>
           <h3 className="font-bold mb-1.5">205 SVG Icons</h3>
           <p className="text-text-secondary text-sm leading-relaxed">
             <span className="highlight-green">Stroke-based icons</span> across 12 categories.
@@ -55,7 +62,9 @@ export function OverviewPage() {
           </p>
         </div>
         <div className="feature-card">
-          <span className="text-2xl mb-3 block">P</span>
+          <span className="text-2xl mb-3 block">
+            <Icon icon={Icons.icon.Crown}/>
+          </span>
           <h3 className="font-bold mb-1.5">30+ UI Primitives</h3>
           <p className="text-text-secondary text-sm leading-relaxed">
             Button, Card, Avatar, Input, Badge, Tabs, Modals, SidePanels, Grids, Lists —
@@ -63,7 +72,9 @@ export function OverviewPage() {
           </p>
         </div>
         <div className="feature-card">
-          <span className="text-2xl mb-3 block">H</span>
+          <span className="text-2xl mb-3 block">
+            <Icon icon={Icons.icon.Hourglass}/>
+          </span>
           <h3 className="font-bold mb-1.5">Enhanced Hooks</h3>
           <p className="text-text-secondary text-sm leading-relaxed">
             <span className="highlight-cyan">useState</span> with reset/get,{" "}
