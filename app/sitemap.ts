@@ -47,7 +47,7 @@ const docs = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://elk-components.dev";
+  const base = "https://component-docs-seo.vercel.app";
 
   const docPages = docs.map((slug) => ({
     url: `${base}/docs/${slug}`,

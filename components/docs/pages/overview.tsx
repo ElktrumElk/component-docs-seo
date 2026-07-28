@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CodeBlock } from "@/components/docs/shared/CodeBlock";
+
 import { Gap, Icon, Icons } from "elk-components";
 
 export function OverviewPage() {
